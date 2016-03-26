@@ -13,6 +13,30 @@
 			
 		}
 		p {text-align:center}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #333;
+		}
+
+		li {
+			float: left;
+		}
+
+		li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		li a:hover {
+			background-color: #111;
+		}
+		
 		
 	</style>
 	
@@ -22,25 +46,23 @@
 
 </head>
 <body>
-	<h1>FGG - Fina Grabbarnas grupp</h1>
-	<p>Välkommen till FGG - Fina Grabbarnas grupp <br /><em>Where it all begins...</em></p>
-<hr />
-<table cellpadding="10" width="100%">
-	<!--<th><a href="second.html">Lagar</a></th>-->
-	<th><a href="Members.html">Medlemmar</a></th>
-	<!--<th><a href="Kontakt.html">Kontakt</a></th>-->
-</table>
 
-<table cellpadding="10" width="100%">
+<ul>
+  <li><a class="active" href="index.html">Hem</a></li>
+  <li><a href="Members.html">Medlemmar</a></li>
+  <li><a href="Galleri.html">Media</a></li>
+  <li><a href="second.html">About</a></li>
+</ul>
 
-	
+<h1>FGG - Fina Grabbarnas grupp</h1>
+<p>Välkommen till FGG - Fina Grabbarnas grupp <br /><em>Where it all begins...</em></p>
+<table cellpadding="10" width="100%">
 	<th><iframe width="560" height="315" src="https://www.youtube.com/embed/Fc673Aj_8gc" frameborder="1" allowfullscreen></iframe></th>
 </table>
 
-<img  id="rosaAss" onmouseover="rosaString()" src="rosa.gif" height="100" align="center">
+<!--<img  id="rosaAss" onmouseover="rosaString()" src="rosa.gif" height="100" align="center-->
 
 <script>
-var myigm = document.getElementById("rosaAss"); 
 	function rosaString(){
 		var audio = new Audio('Rosastring.mp3');
 		audio.play();
@@ -49,8 +71,5 @@ var myigm = document.getElementById("rosaAss");
 	}
 	
 </script>
-
-
-<br />
 </body>
 </html>

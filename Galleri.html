@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+		body {background-color:black;
+			color:white;
+		}
+		h1 {text-align:center;
+			
+		}
+		p {text-align:center}
+		
+	</style>
+	
+	<title>Galleri</title>
+		
+	<meta charset="utf-8">
+</head>
+<body>
+	
+	<script>
+	var pics = [];
+	var index = 0;
+	var maxIndex = 2;
+	pics[0] = "1.png"
+	pics[1] = "2.png"
+	pics[2] = "3.png"
+	function nextPic(){
+		if(index < maxIndex){
+			index +=1;
+		}
+	document.getElementById("demo").src = pics[index];
+	}
+	function prePic(){
+		if(index > 0){
+			index -=1;
+		}
+		document.getElementById("demo").src = pics[index];
+	}
+	</script>
+
+	<h1>FGG - Galleri</h1>
+	
+	<center>
+	<img id="demo" src="1.png" height="450px"></center>
+	<center><button type="button" onclick="prePic()"><---</button>
+	<button type="button" onclick="nextPic()">---></button>
+	</center>
+</body>
+</html>
