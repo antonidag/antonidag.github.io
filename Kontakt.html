@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<style type="text/css">
+	h2 {background-color:yellow;
+		padding-top:30px;
+		padding-bottom:30px;
+		padding-left:150px;
+		border-color:red;
+		border-width:3px;
+		border-style:dashed;
+	}
+	</style>
+</head>
+<body>
+	
+	<script>
+	
+	var pics = [];
+	var index = 0;
+	var maxIndex = 2;
+	pics[0] = "1.png";
+	pics[1] = "2.png";
+	pics[2] = "3.png"
+	function nextPic(){
+		if(index < maxIndex){
+			index +=1;
+		}
+	document.getElementById("text").innerHTML = index;
+	document.getElementById("demo").src = pics[index];
+	}
+	function prePic(){
+		if(index > 0){
+			index -=1;
+		}
+		document.getElementById("text").innerHTML = index;
+		<!--document.getElementById("demo").src = pics[index];-->
+	}
+
+	</script>
+	<button type="button" onclick="nextPic()">Next</button>
+	<button type="button" onclick="prePic()">Pre</button>
+	<h2>This is a head:)</h2>
+	
+	<img id="demo" src="1.png" height="350px">
+	<p id="text"></p>
+</body>
+</html>
