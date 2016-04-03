@@ -2,11 +2,35 @@
 <html>
 <head>
 	<style type="text/css">
-		body {background-color:black;
+			body {background-color:black;
 			color:white;
 		}
-		h1 {text-align:center;
+		h1 {text-align:left;
 			
+		}
+		p {text-align:center}
+		ul {
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+			overflow: hidden;
+			background-color: #333;
+		}
+
+		li {
+			float: left;
+		}
+
+		li a {
+			display: block;
+			color: white;
+			text-align: center;
+			padding: 14px 16px;
+			text-decoration: none;
+		}
+
+		li a:hover {
+			background-color: #111;
 		}
 		p {text-align:center}
 		
@@ -17,7 +41,12 @@
 	<meta charset="utf-8">
 </head>
 <body>
-	
+<ul>
+  <li><a class="active" href="index.html">Hem</a></li>
+  <li><a href="Members.html">Medlemmar</a></li>
+  <li><a href="Galleri.html">Media</a></li>
+  <li><a href="second.html">About</a></li>
+</ul>
 	<script>
 	var pics = [];
 	var index = 0;
@@ -39,7 +68,7 @@
 	}
 	</script>
 
-	<h1>FGG - Galleri</h1>
+	<h1>Galleri</h1>
 	
 	<center>
 	<img id="demo" src="1.png" height="450px"></center>
