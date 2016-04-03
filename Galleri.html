@@ -66,8 +66,13 @@
 		}
 		document.getElementById("demo").src = pics[index];
 	}
+	function selectPic(newIndex){
+		document.getElementById("demo").src = pics[newIndex];
+	}
 	</script>
+	<script>
 
+	</script>
 	<h1>Galleri</h1>
 	
 	<center>
@@ -75,5 +80,13 @@
 	<center><button type="button" onclick="prePic()"><---</button>
 	<button type="button" onclick="nextPic()">---></button>
 	</center>
+<hr />
+	<table>
+		<tr>
+			<td onclick="selectPic(0)"><img src="1.png" height="110px"></td>
+			<td onclick="selectPic(1)"><img src="2.png" height="110px"></td>
+			<td onclick="selectPic(2)"><img src="3.png" height="110px"></td>
+		</tr>
+	</table>
 </body>
 </html>
