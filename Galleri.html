@@ -50,10 +50,18 @@
 	<script>
 	var pics = [];
 	var index = 0;
-	var maxIndex = 2;
-	pics[0] = "1.png"
-	pics[1] = "2.png"
-	pics[2] = "3.png"
+	var maxIndex = 9;
+	pics[0] = "fggpic.jpg"
+	pics[1] = "antonGay.jpg"
+	pics[2] = "midsommar.jpg"
+	pics[3] = "midsommar2.jpg"
+	pics[4] = "midsommar1.jpg"
+	pics[5] = "strand0.jpg"
+	pics[6] = "strand1.jpg"
+	pics[7] = "strand2.jpg"
+	pics[8] = "strand4.jpg"
+	pics[9] = "strand5.jpg"
+	
 	function nextPic(){
 		if(index < maxIndex){
 			index +=1;
@@ -70,22 +78,27 @@
 		document.getElementById("demo").src = pics[newIndex];
 	}
 	</script>
-	<script>
-
-	</script>
 	<h1>Galleri</h1>
 	
 	<center>
-	<img id="demo" src="1.png" height="450px"></center>
+	<img id="demo" src="fggpic.jpg" height="650px"></center>
 	<center><button type="button" onclick="prePic()"><---</button>
 	<button type="button" onclick="nextPic()">---></button>
 	</center>
 <hr />
-	<table>
+	<table width="100%">
 		<tr>
-			<td onclick="selectPic(0)"><img src="1.png" height="110px"></td>
-			<td onclick="selectPic(1)"><img src="2.png" height="110px"></td>
-			<td onclick="selectPic(2)"><img src="3.png" height="110px"></td>
+			<td onclick="selectPic(0)"><img src="fggpic.jpg" height="110px"></td>
+			<td onclick="selectPic(1)"><img src="antonGay.jpg" height="110px"></td>
+			<td onclick="selectPic(2)"><img src="midsommar.jpg" height="110px"></td>
+			<td onclick="selectPic(2)"><img src="midsommar1.jpg" height="110px"></td>
+			<td onclick="selectPic(3)"><img src="midsommar2.jpg" height="110px"></td>
+			<td onclick="selectPic(4)"><img src="strand0.jpg" height="110px"></td>
+			<td onclick="selectPic(5)"><img src="strand1.jpg" height="110px"></td>
+			<td onclick="selectPic(6)"><img src="strand2.jpg" height="110px"></td>
+			<td onclick="selectPic(7)"><img src="strand3.jpg" height="110px"></td>
+			<td onclick="selectPic(8)"><img src="strand4.jpg" height="110px"></td>
+			<td onclick="selectPic(9)"><img src="strand5.jpg" height="110px"></td>
 		</tr>
 	</table>
 </body>
