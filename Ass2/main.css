@@ -1,0 +1,41 @@
+#map {
+    height: 100%;
+    width: 67%;
+    border-style:solid;
+    border-color: #c5c5c5;
+    margin: auto;
+    }
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    }
+img {
+    height: 200px;
+    width: 300px;
+    padding: 5px;
+    }
+#bCounties img {
+    height: 100px;
+    width: 150px;
+    padding: 5px;
+    }
+#bCounties img:hover {
+    box-shadow: 1px 1px 20px #000000;
+    background: #bbb8b8;
+    }
+#countries {
+    float: left;
+    width: 70%;
+    }
+.after-box {
+    display: block;
+    }
+html {
+    background: #e6e6e6;
+    }
+.center {
+    margin: auto;
+    width: 20%;
+    padding: 10px;
+    }

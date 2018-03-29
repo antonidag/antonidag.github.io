@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Search API - Anton Björkman ae4864</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link href="main.css" type="text/css" rel="stylesheet">    
+  </head>
+  <body>
+    <div class="center">
+        <meny >
+            <input type="text" id="input">
+            <button type="button" id="btnSearch" >Search</button>
+        </meny>
+    </div>
+    <div class="after-box"></div>
+    <div id="countries">
+    </div>
+    <div id="weather"></div>
+    <div class="after-box"></div>
+    <div id="map" style="display:none"></div>
+    <script src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+    <script src="main.js"></script>
+    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyArlc5R760JDE4Ki9vj5Xw-C4R0JvQn-OE&callback=initMap"></script>
+  </body>
+</html>
