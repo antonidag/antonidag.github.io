@@ -4,10 +4,7 @@
 
 #map {
     height: 100%;
-    width: 67%;
-    border-style:solid;
-    border-color: #c5c5c5;
-    margin: auto;
+    width: 100%;
     }
 html, body {
     height: 100%;

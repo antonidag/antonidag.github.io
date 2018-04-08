@@ -28,6 +28,9 @@ function Country(){
   this.boundryCounties = [];
   this.lat = 0;
   this.lng = 0;
+  this.nativeName = "";
+  this.languages = [];
+  this.area = "";
 }
 // Assign global variables
 var country = new Country();
@@ -58,6 +61,7 @@ function callCountryAPI(search){
       url:"https://restcountries.eu/rest/v2/name/"+ search + "?fullText=true",
       async:true,
       success: function(response){
+        console.log(response);
         initCountry(response);
         initMap();
         getBoundryCountries();
@@ -65,6 +69,8 @@ function callCountryAPI(search){
         $("#map").fadeIn();
       },
       error: function(jqXHR, textStatus, errorThrown,response) {
+        $("#map").fadeOut();
+        $("#weather").html(""); 
         console.log(jqXHR);
         console.log(textStatus);
         console.log(errorThrown);
@@ -76,12 +82,16 @@ function callCountryAPI(search){
 // Takes the response and sets it to the country object.
 function initCountry(response){
   country.name = response[0].name;
+  country.nativeName = response[0].nativeName;
   country.city = response[0].capital;
   country.flag = response[0].flag;
   country.population = response[0].population;
   country.lat = parseInt(response[0].latlng[0]);
   country.lng = parseInt(response[0].latlng[1]);
   country.boundryCounties = response[0].borders;
+  country.languages = response[0].languages;
+  country.area = response[0].area;
+
 }
 
 // Make call to the Restcountries API to get the boundry countries, to the main country.
@@ -143,33 +153,55 @@ function callWeatherAPI(city){
   });
 }
 // Retruns a div with all the information about the main country.
-function createCountryDiv(name,city,population,flag){
+function createCountryDiv(name,nativeName,city,population,flag,area,languages){
   var parrent = document.createElement("div");
   var h1 = document.createElement("h1");
   var h2 = document.createElement("h2");
   var h4 = document.createElement("h4");
   var para = document.createElement("p");
+  var para1 = document.createElement("p");
   var img = document.createElement("img");
 
   img.src = flag;
-  var textNodeh1 = document.createTextNode(name);
-  var textNodeh2 = document.createTextNode("The capital in "+ name +" is: " +city +".");
-  var textNOdepara = document.createTextNode(name+ " has a population of " + population + ".");
+  var textNodeh1 = document.createTextNode(name + " - "+ nativeName);
+  var textNodeh2 = document.createTextNode("The capital in "+ name +" are " + city +".");
+  var textNOdepara = document.createTextNode(name+ " has a population of " + population + " people, and has an area of " + area +" km².");
+  var textNodePara1 = document.createTextNode(makeStringLag(languages));
   var textNodeh4 = document.createTextNode(country.name + " borders to:");
 
   h1.appendChild(textNodeh1);
   h2.appendChild(textNodeh2);
   h4.appendChild(textNodeh4);
   para.appendChild(textNOdepara);
+  para1.appendChild(textNodePara1);
   parrent.appendChild(h1);
   parrent.appendChild(img);
   parrent.appendChild(h2);
   parrent.appendChild(para);
+  parrent.appendChild(para1);
   parrent.appendChild(h4);
 
 
   return parrent;
 }
+function makeStringLag(languages){
+  var string = "The language spoken are ";
+  console.log(languages[0]);
+  if(languages.length > 1){
+    var sLang = "";
+    languages.forEach(function(x,index){
+      if(languages.length-1 != index){
+        sLang += x.name + ", ";
+      }else{
+        sLang += x.name + ".";
+      }
+    });
+    return string + sLang; 
+  }
+  return string + languages[0].name+".";
+}
+
+
 // Retruns a Array of img tags of the boundry countries.
 function createBoundryCountries(borders){
   var arrayImg = [];
@@ -191,7 +223,7 @@ function createBoundryCountries(borders){
 }
 // Appends all the divs to the rightfull place in the HTML document.
 function appendCountriesToDiv(){
-  var mainCDiv = createCountryDiv(country.name,country.city,country.population,country.flag);
+  var mainCDiv = createCountryDiv(country.name,country.nativeName,country.city,country.population,country.flag,country.area,country.languages);
   var bCountries = createBoundryCountries(boundryCountries);
   var bCountriesDiv = document.createElement("div");
   bCountriesDiv.id = "bCounties";
