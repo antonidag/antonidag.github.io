@@ -1,0 +1,29 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+body, html {
+    height: 100%;
+}
+
+.bg {
+    /* The image used */
+    background-image: url("max.jpg");
+
+    /* Full height */
+    height: 100%; 
+
+    /* Center and scale the image nicely */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+video {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    min-width: 100%; 
+    min-height: 70%;
+    mix-blend-mode: soft-light;
+    filter: grayscale(100)
+}
