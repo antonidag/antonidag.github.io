@@ -17,11 +17,14 @@ function reset(){
   country = new Country();
   boundryCountries = [];
   $("#countries").html("");
+  interval.stopInterval();
+    
 }
 
 // Constructor function. 
 function Country(){
   this.name = "";
+  this.altSpellings = [];
   this.city = "";
   this.population = 0;
   this.flag = "";
@@ -35,6 +38,7 @@ function Country(){
 // Assign global variables
 var country = new Country();
 var boundryCountries = [];
+var interval = new Interval();
 
 
 // Controller fuction, checks when to add the Countries and boundry Countries to the html.
@@ -91,6 +95,7 @@ function initCountry(response){
   country.boundryCounties = response[0].borders;
   country.languages = response[0].languages;
   country.area = response[0].area;
+  country.altSpellings = response[0].altSpellings;
 
 }
 
@@ -156,6 +161,7 @@ function callWeatherAPI(city){
 function createCountryDiv(name,nativeName,city,population,flag,area,languages){
   var parrent = document.createElement("div");
   var h1 = document.createElement("h1");
+  var h2AltSpelling = document.createElement("h2");
   var h2 = document.createElement("h2");
   var h4 = document.createElement("h4");
   var para = document.createElement("p");
@@ -163,18 +169,23 @@ function createCountryDiv(name,nativeName,city,population,flag,area,languages){
   var img = document.createElement("img");
 
   img.src = flag;
+  h2AltSpelling.id = "altSpelling";
+
   var textNodeh1 = document.createTextNode(name + " - "+ nativeName);
+  var textNodeh2AltSpelling = document.createTextNode(country.altSpellings[country.altSpellings.length - 1]);
   var textNodeh2 = document.createTextNode("The capital in "+ name +" are " + city +".");
   var textNOdepara = document.createTextNode(name+ " has a population of " + population + " people, and has an area of " + area +" km².");
   var textNodePara1 = document.createTextNode(makeStringLag(languages));
   var textNodeh4 = document.createTextNode(country.name + " borders to:");
 
   h1.appendChild(textNodeh1);
+  h2AltSpelling.appendChild(textNodeh2AltSpelling);
   h2.appendChild(textNodeh2);
   h4.appendChild(textNodeh4);
   para.appendChild(textNOdepara);
   para1.appendChild(textNodePara1);
   parrent.appendChild(h1);
+  parrent.appendChild(h2AltSpelling);
   parrent.appendChild(img);
   parrent.appendChild(h2);
   parrent.appendChild(para);
@@ -232,4 +243,21 @@ function appendCountriesToDiv(){
   cDiv.appendChild(mainCDiv);
   bCountries.forEach(item => bCountriesDiv.appendChild(item));
   cDiv.appendChild(bCountriesDiv);
+  interval.startInterval();
+}
+
+function Interval(){
+  this.intervalAltSpelling = {};
+
+  this.startInterval = function() {
+    this.intervalAltSpelling = window.setInterval(changeAltSpelling,2500);
+  };
+  this.stopInterval = function(){
+    window.clearInterval(this.intervalAltSpelling);
+  }
+}
+var countAlt = 0;
+function changeAltSpelling(){
+  countAlt++;
+  $("#altSpelling").html(country.altSpellings[countAlt % country.altSpellings.length]);
 }
