@@ -82,7 +82,7 @@ Calculator.prototype.calculate = function(input){
                 console.log(this.multiply(operations.val1,operations.val2));
                 break;
                 default:
-                return 0;
+                console.log("Error at:" + operations.val1 + " " + operations.val2 + " " + operations.operator);
                 break;
             }
         }
