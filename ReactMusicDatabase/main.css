@@ -1,0 +1,59 @@
+*{
+  font-family: "Arial Black";
+}
+body {
+  background-color:#F2F2F2;
+}
+button {
+  border: 0px;
+  color:white;
+  padding: 5px;
+  margin: 5px;
+  background-color: gray;
+}
+button:hover {
+  background-color: darkgray;
+}
+.album{
+    box-shadow: 1px 1px 15px #888888;
+    width: 400px;
+    background-color: #F2F2F2;
+}
+.album:hover{
+  background-color: #A4A4A4;
+}
+textarea{
+  margin-left:5px;
+}
+a {
+  margin-left: 35%;
+}
+
+h2{
+  padding: 15px;
+}
+
+img{
+  margin-left: 10%;
+  padding: 5px;
+  border-radius: 50%;
+}
+
+.buttonRed {
+  background-color: red;
+}
+.buttonRed:hover{
+  background-color: darkred;
+}
+.buttonBlue{
+  background-color: blue;
+}
+.buttonBlue:hover{
+  background-color: darkblue;
+}
+.buttonGreen{
+  background-color: green;
+}
+.buttonGreen:hover{
+  background-color: darkgreen;
+}

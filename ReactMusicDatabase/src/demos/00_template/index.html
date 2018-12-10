@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React - Projekt</title>
+    <script src="../../js/react.min.js"></script>
+    <script src="../../js/react-dom.min.js"></script>
+    <script src="../../js/browser.min.js"></script>
+    <script src="../../js/albums.js"></script>
+</head>
+<body>
+
+    <div id="container"></div>
+
+    <script type="text/babel">
+    var Album = React.createClass({
+        getInitialState: function(){
+          return{
+            isChangeing:false
+          };
+      },
+        changeAlbum: function(){
+
+          this.setState({isChangeing:true});
+          console.log(this.state.isChangeing);
+        },
+        saveAlbum: function(){
+          var val = this.refs.newTitle.value;
+          this.props.album.name = val;
+          console.log(val);
+          this.setState({isChangeing:false});
+        },
+        renderFrom:function(){
+          return (
+            <div className="album">
+                <p>
+                Titel
+                </p>
+                <textarea ref="newTitle" defaultValue={this.props.album.name} />
+                <p>
+                Spotify Link
+                </p>
+                <textarea defaultValue={this.props.album.href} />
+                <br />
+                <p>
+                Image url:
+                </p>
+                <textarea defaultValue={this.props.album.image.url} />
+                <br />
+                <button onClick={this.saveAlbum} type="button">Save</button>
+            </div>
+          )
+        },
+        renderNormal: function(){
+          return (
+            <div className="album">
+                <h2>{this.props.album.name}</h2>
+                <a href={this.props.album.href}>Spotify link</a>
+                <br />
+                <img src={this.props.album.image.url} alt="" />
+                <br />
+                <button onClick={this.props.onClick} type="button">Remove</button>
+                <button onClick={this.changeAlbum} type="button">Change</button>
+            </div>
+          )
+        },
+        render: function() {
+          if(this.state.isChangeing){
+            return this.renderFrom();
+          }
+          else {
+            return this.renderNormal();
+          }
+
+        }
+    });
+
+    var Albums = React.createClass({
+        getInitialState: function() {
+            // Notera att variabeln "albums" kommer från
+            // filen `js/albums.js`
+            return {
+                albums: albums
+            };
+        },
+        addAlbum: function(){
+          alert("Detta funkar");
+          this.setState({albums: this.state.albums});
+        },
+        removeAlbum: function(index) {
+            // Radera ett album från listan
+            this.state.albums.splice(index, 1);
+            // Uppdatera tillståndet med albumen igen
+            this.setState({albums: this.state.albums});
+        },
+        render: function() {
+            return (
+                <div className="albums">
+                    {this.state.albums.map(function(album, index) {
+                        return (
+                            <Album
+                                album={album}
+                                onClick={this.removeAlbum.bind(this, index)}
+                                />
+                        )
+                    }, this)}
+                </div>
+            )
+        }
+    });
+
+    // Rendera the shit innehåll
+    ReactDOM.render(
+        <Albums />,
+        document.getElementById("container")
+    );
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="main.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>React - Projekt</title>
+    <script src="src/js/react.min.js"></script>
+    <script src="src/js/react-dom.min.js"></script>
+    <script src="src/js/browser.min.js"></script>
+    <script src="src/js/albums.js"></script>
+
+</head>
+<body>
+    <div id="container"></div>
+
+    <script type="text/babel">
+    var Album = React.createClass({
+        getInitialState: function(){
+          return{
+            isChangeing:false
+          };
+      },
+        changeAlbum: function(){
+
+          this.setState({isChangeing:true});
+          console.log(this.state.isChangeing);
+        },
+        saveAlbum: function(){
+          var title = this.refs.newTitle.value;
+          var link = this.refs.link.value;
+          var img = this.refs.img.value;
+          this.props.album.name = title;
+          this.props.album.href = link;
+          this.props.album.image.url = img;
+          this.setState({isChangeing:false});
+        },
+        cancel:function(){
+          this.setState({isChangeing:false});
+        },
+        renderFrom:function(){
+          return (
+            <div className="album">
+                <p>
+                Titel
+                </p>
+                <textarea ref="newTitle" defaultValue={this.props.album.name} />
+                <p>
+                Spotify Link
+                </p>
+                <textarea ref="link"defaultValue={this.props.album.href} />
+                <br />
+                <p>
+                Image url:
+                </p>
+                <textarea ref="img" defaultValue={this.props.album.image.url} />
+                <br />
+                <button className="buttonGreen" onClick={this.saveAlbum} type="button">Save</button>
+                <button className="buttonRed" onClick={this.cancel}>Cancel</button>
+
+            </div>
+          )
+        },
+        renderNormal: function(){
+          return (
+            <div className="album">
+                <h2>{this.props.album.name}</h2>
+                <a href={this.props.album.href}>Spotify link</a>
+                <br />
+                <img src={this.props.album.image.url} alt="Image" width="300px" height="300px"/>
+                <br />
+                <button className="buttonBlue" onClick={this.changeAlbum} type="button">Edit</button>
+                <button className="buttonRed" onClick={this.props.onClick} type="button">Remove</button>
+            </div>
+          )
+        },
+        render: function() {
+          if(this.state.isChangeing){
+            return this.renderFrom();
+          }
+          else {
+            return this.renderNormal();
+          }
+
+        }
+    });
+
+    var Albums = React.createClass({
+        getInitialState: function() {
+            // Notera att variabeln "albums" kommer från
+            // filen `js/albums.js`
+            return {
+                albums: albums,
+                addingAlbum:false
+            };
+        },
+        addAlbum: function(){
+          this.setState({addingAlbum:true})
+
+        },
+        removeAlbum: function(index) {
+            // Radera ett album från listan
+            this.state.albums.splice(index, 1);
+            // Uppdatera tillståndet med albumen igen
+            this.setState({albums: this.state.albums});
+        },
+        cancelSave: function(){
+          this.setState({addingAlbum:false});
+        },
+        renderAlbumNormal: function(){
+          return(
+            <div>
+            <h1>Music Database</h1>
+            <button onClick={this.addAlbum}>Add Album</button>
+
+              <div className="albums">
+                {this.state.albums.map(function(album, index) {
+                    return (
+                        <Album
+                            album={album}
+                            onClick={this.removeAlbum.bind(this, index)}
+                            />
+                    )
+                }, this)}
+                </div>
+            </div>
+
+          )
+        },
+        renderAlbumAdd: function(){
+          return(
+            <div className="album">
+              <h1>New Album</h1>
+              <div>
+              <p>
+              Titel
+              </p>
+              <textarea ref="title" />
+              <p>
+              Spotify Link
+              </p>
+              <textarea ref="link" />
+              <br />
+              <p>
+              Image url:
+              </p>
+              <textarea ref="img" />
+              <br />
+              <button className="buttonGreen" onClick={this.saveAlbum} type="button">Save</button>
+              <button className="buttonRed" onClick={this.cancelSave}>Cancel</button>
+              </div>
+            </div>
+
+          )
+        },
+        saveAlbum: function(){
+          console.log(this.refs.title.value + this.refs.link.value + this.refs.img.value);
+          var title = this.refs.title.value;
+          var link = this.refs.link.value;
+          var img = [300,this.refs.img.value,300];
+          this.state.albums.push({"id":"123","href":link,"name":title,"uri":"https://api.spotify.com/v1/albums/5Dbax7G8SWrP9xyzkOvy2F","image":{"height":img[0],"url":img[1],"width":img[2]}});
+          console.log(this.state.albums.length);
+          this.setState({albums: this.state.albums});
+          this.setState({addingAlbum:false});
+        },
+        render: function() {
+          if(this.state.addingAlbum){
+            return(this.renderAlbumAdd());
+          }
+          else {
+            return (this.renderAlbumNormal());
+          }
+
+        }
+    });
+
+    // Rendera the shit innehåll
+    ReactDOM.render(
+        <Albums />,
+        document.getElementById("container")
+    );
+    </script>
+
+</body>
+</html>
