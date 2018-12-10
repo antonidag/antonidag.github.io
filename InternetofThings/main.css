@@ -1,0 +1,313 @@
+:root{
+   --main-font: 'Quicksand', sans-serif;
+   --main-color: #f77f2e;
+}
+
+
+/* Styles for screens over 850px wide */
+
+body{
+   font-family: var(--main-font) !important;
+   font-weight: 200;
+   color: white !important;
+   background: #222 !important;
+}
+.carousel-item-next,
+.carousel-item-prev,
+.carousel-item.active {
+    height: 100%;
+    padding: 5rem 13%;
+
+}
+
+.carousel-control-next,
+.carousel-control-prev {
+    width: 10% !important;
+    color: #fff;
+    height: 100vh;
+    position: fixed;
+}
+
+.carousel-indicators {
+    top: 0;
+    bottom: initial !important;
+    text-transform: uppercase;
+
+}
+
+.carousel-indicators li {
+    width: initial !important;
+    height: initial !important;
+    text-indent: initial !important;
+    padding: 1rem;
+    cursor: pointer;
+    background-color: #333 !important;
+}
+.carousel-indicators li.active{
+   background-color: var(--main-color) !important;
+}
+
+.carousel-indicators li:hover {
+    background-color: #ccc;
+}
+
+h1 {
+    text-align: center;
+    color: inherit;
+}
+
+.climate-tab-wrapper{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.spinner {
+    margin: 100px auto;
+    width: 100px;
+    height: 100px;
+    position: relative;
+    text-align: center;
+    
+    -webkit-animation: sk-rotate 2.0s infinite linear;
+    animation: sk-rotate 2.0s infinite linear;
+  }
+  
+  .dot1, .dot2 {
+    width: 60%;
+    height: 60%;
+    display: inline-block;
+    position: absolute;
+    top: 0;
+    background-color: #f77f2e;;
+    border-radius: 100%;
+    
+    -webkit-animation: sk-bounce 2.0s infinite ease-in-out;
+    animation: sk-bounce 2.0s infinite ease-in-out;
+  }
+  
+  .dot2 {
+    top: auto;
+    bottom: 0;
+    -webkit-animation-delay: -1.0s;
+    animation-delay: -1.0s;
+  }
+  
+  @-webkit-keyframes sk-rotate { 100% { -webkit-transform: rotate(360deg) }}
+  @keyframes sk-rotate { 100% { transform: rotate(360deg); -webkit-transform: rotate(360deg) }}
+  
+  @-webkit-keyframes sk-bounce {
+    0%, 100% { -webkit-transform: scale(0.0) }
+    50% { -webkit-transform: scale(1.0) }
+  }
+  
+  @keyframes sk-bounce {
+    0%, 100% { 
+      transform: scale(0.0);
+      -webkit-transform: scale(0.0);
+    } 50% { 
+      transform: scale(1.0);
+      -webkit-transform: scale(1.0);
+    }
+  }
+
+.climate-wrapper{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    margin: 2rem 0;
+}
+.climate-wrapper div p{
+   text-align: center;
+}
+
+#historical-wrapper{
+   width: 100%;
+   display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+#historical-wrapper form{
+   display: inline-block;
+}
+#historical-wrapper form input{
+   padding: 10px;
+   border: 0;
+   color: #aaa;
+   font-family: var(--main-font);
+   font-weight: 200;
+   text-transform: uppercase;
+
+}
+#historical_temp_chart_div, #historical_humidity_chart_div{
+   width: 100%;
+}
+
+h2 {
+    text-align: center;
+    color: #fff !important;
+}
+
+.graphnumberwrapper{
+   /* width: 25%; */
+   position: relative;
+}
+.graphnumber{
+   position: absolute;
+   top: 0;
+   left: 0;
+   height: 100%;
+   width: 100%;
+   display: flex;
+   justify-content: center;
+   align-items: center;
+
+}
+.graphnumber p{
+   margin: 0;
+   font-size: 22px;
+}
+#temp-wrapper, #pressure-wrapper, #sound-wrapper{
+   width: 25%;
+}
+#temp_chart_div, #pressure_chart_div, #sound_chart_div, #mashChart_div, #labstate-wrapper, #historical_sound_chart_div{
+   width: 100%;
+}
+#humidity-wrapper, #x-wrapper{
+   width: 40%;
+}
+
+
+input[type=checkbox]{
+  display:none;
+}
+
+input[type=submit]{
+    display: block;
+     width:200px;
+  height:50px;
+  box-sizing:border-box;
+  border:3px solid;
+  float:left;
+  border-radius:100px;
+  position:relative;
+  cursor:pointer;
+  transition:.3s ease;
+  font-family: 'Quicksand', sans-serif;
+    font-weight: 500;
+    font-size: 15px;
+    margin-top: 3rem;
+
+}
+
+input[type=submit]:hover{
+    background:#f77f2e;
+}
+.block{
+   display: flex;
+   flex-direction: column;
+   align-items: center;
+   margin: 0 2rem;
+}
+span{
+  text-transform:uppercase;
+  font-family: 'Quicksand', sans-serif;
+  font-weight:500;
+  letter-spacing:1px;
+  font-size:15px;
+  margin: 0 0 16px 0;
+    color: #ffffff;
+}
+.wrap{
+   width: 100%;
+}
+.wrap form{
+   display: flex;
+   flex-direction: column;
+   justify-content: space-between;
+   align-items: center;
+}
+.wrap form .checkboxes{
+   display: flex;
+   flex-direction: row;
+   justify-content: space-between;
+   align-items: flex-end;
+}
+.loader{
+    padding: 15em 0;
+}
+label{
+  width:100px;
+  height:50px;
+  box-sizing:border-box;
+  border:3px solid;
+  float:left;
+  border-radius:100px;
+  position:relative;
+  cursor:pointer;
+  transition:.3s ease;
+      color: #ffffff;
+}
+input[type=checkbox]:checked + label{
+  background:#f77f2e;
+}
+input[type=checkbox]:checked + label:before{
+  left:52px;
+}
+label:before{
+  transition:.3s ease;
+  content:'';
+  width:40px;
+  height:40px;
+  position:absolute;
+  background:white;
+  left:2px;
+  top:2px;
+  box-sizing:border-box;
+  border:3px solid;
+  color:white;
+  border-radius:100px;
+}
+
+/*Date picker*/
+#date-pickers{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+}
+
+/* Styles for screens under 850px */
+@media only screen and (max-width: 850px) {
+   .carousel-indicators{
+      margin: 0 .5rem .5rem !important;
+   }
+   .carousel-indicators li{
+      font-size: .8rem !important;
+   }
+
+}
+
+/* Styles for screens under 700px */
+@media only screen and (max-width: 700px) {
+
+
+}
+
+/* Styles for screens under 400px */
+@media only screen and (max-width: 400px) {
+
+   #temp-wrapper, #pressure-wrapper, #sound-wrapper, #humidity-wrapper, #x-wrapper{
+      width: 100%;
+   }
+
+}
+
+
+
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
