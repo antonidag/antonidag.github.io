@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8" />
@@ -6,16 +6,27 @@
     <title>Max Nyberg Mix-Blend-mode</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+
 </head>
 <body>
-    <audio autoplay loop>
-        <source src="darkness.mp3">
-    </audio> 
+
+
     <figure>
         <video autoplay muted loop id="myVideo">
             <source src="snow.mp4" type="video/mp4">
         </video>
     </figure>
-    <div class="bg"></div>
+    <div class="dropdown">
+      <button class="dropbtn">Background</button>
+        <div class="dropdown-content">
+          <a href="#" id="itemFire">Fire Place</a>
+          <a href="#" id="itemMountain">Mountain</a>
+          <a href="#" id="itemAirballon">Air ballon</a>
+        </div>
+  </div>
+  <div class="bg" id="bg"></div>
+  <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.3.1.min.js"></script>
+  <script src="script.js"></script>
 </body>
+
 </html>
