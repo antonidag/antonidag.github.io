@@ -7,7 +7,7 @@ var bg = document.getElementById("bg");
 
 
 itemFire.addEventListener('click', function() {
-  fire(0);
+  fire();
 });
 
 itemMountain.addEventListener('click', function(){
@@ -18,8 +18,14 @@ itemAirballon.addEventListener('click', function(){
   bg.style.backgroundImage = "url('image/airballon.jpg')";
 });
 
-function fire(current) {
-  bg.style.backgroundImage = "url('image/fire/fireplace" + current + ".jpg'";
-  setInterval(() => fire(current + 1), 1000);
+var current = -1;
+function fire() {
+  current ++;
+  bg.style.backgroundImage = "url('image/fire/fireplace" +  current % 2 + ".jpg'";
+  console.log(current % 2);
+  setTimeout(() => fire(), 15000);
+
+}
+function globaltick(){
 
 }
