@@ -40,31 +40,32 @@ video {
     display: inline-block;
     box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
 }
-
-/* Dropdown Content (Hidden by Default) */
-.dropdown-content {
-  display: none;
-  position: absolute;
-  background-color: #f1f1f1;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 1;
+.wrapper {
+  display: grid;
+  height: 100%;
+  grid-template-areas:
+    "a b"
+    "c d";
+}
+.item {
+  animation-name: grayscaleDown;
+  animation-duration: 2s;
+  filter: grayscale(100%);
+  background-size: cover; /* <-- background size */
+  background-position: center; /* <-- background position */
 }
 
-/* Links inside the dropdown */
-.dropdown-content a {
-  color: black;
-  padding: 12px 16px;
-  text-decoration: none;
-  display: block;
-  background-color: #e7e1ef;
+.item:hover {
+  animation-name: grayscaleUp;
+  animation-duration: 2s;
+  filter: grayscale(0%);
 }
 
-/* Change color of dropdown links on hover */
-.dropdown-content a:hover {background-color:#d2c8e2;}
-
-/* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
-
-/* Change the background color of the dropdown button when the dropdown content is shown */
-.dropdown:hover .dropbtn {background-color: #b4a1cd}
+@keyframes grayscaleUp {
+  from {filter: grayscale(100%)}
+  to {filter: grayscale(0%);}
+}
+@keyframes grayscaleDown {
+  from {filter: grayscale(0%)}
+  to {filter: grayscale(100%);}
+}
