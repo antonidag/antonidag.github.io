@@ -53,15 +53,32 @@ video {
   background-position: center; /* <-- background position */
 }
 
+.item h1 {
+  margin:auto;
+  line-height:50px;
+  vertical-align:middle;
+}
+.center {
+  top:50%;
+  left:50%;
+  width:62px;
+  height:50px;
+  color:white;
+  position:absolute;
+  text-align:center;
+  background-color:black;
+  margin: -25px 0 0 -31px;
+}
+
 .item:hover {
   animation-name: grayscaleUp;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
   filter: grayscale(0%);
 }
 
 .item:not( :hover ){
   animation-name: grayscaleDown;
-  animation-duration: 2s;
+  animation-duration: 1.5s;
  }
 @keyframes grayscaleUp {
   from {filter: grayscale(100%)}
