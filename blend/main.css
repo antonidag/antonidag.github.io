@@ -48,8 +48,6 @@ video {
     "c d";
 }
 .item {
-  animation-name: grayscaleDown;
-  animation-duration: 2s;
   filter: grayscale(100%);
   background-size: cover; /* <-- background size */
   background-position: center; /* <-- background position */
@@ -61,6 +59,10 @@ video {
   filter: grayscale(0%);
 }
 
+.item:not( :hover ){
+  animation-name: grayscaleDown;
+  animation-duration: 2s;
+ }
 @keyframes grayscaleUp {
   from {filter: grayscale(100%)}
   to {filter: grayscale(0%);}
