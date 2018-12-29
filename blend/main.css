@@ -54,21 +54,21 @@ video {
 }
 
 .item h1 {
+  color: #ffffff;
   margin:auto;
   line-height:50px;
-  vertical-align:middle;
+  height: 50%;
+  background-color: black;
 }
 .center {
-  top:50%;
-  left:50%;
-  width:62px;
-  height:50px;
-  color:white;
-  position:absolute;
-  text-align:center;
-  background-color:black;
-  margin: -25px 0 0 -31px;
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%)
 }
+
 
 .item:hover {
   animation-name: grayscaleUp;
