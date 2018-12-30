@@ -4,17 +4,17 @@
 }
 body, html {
     height: 100%;
+    background-color: black;
 }
 
 .bg {
-    /* The image used background-image: url("image/max.jpg");*/
-
     /* Full height */
     height: 100%;
     /* Center and scale the image nicely */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
+    display: none;
 }
 video {
     position: fixed;
@@ -23,23 +23,25 @@ video {
     min-width: 100%;
     min-height: 70%;
     mix-blend-mode: soft-light;
-    filter: grayscale(100)
+    filter: grayscale(100);
 }
-/* Dropdown Button */
-.dropbtn {
-  background-color: #8161ab;
+.bg a {
+  position: fixed;
+  text-decoration: none;
+  display: inline-block;
+  padding: 8px 16px;
+}
+.bg a:hover {
   color: white;
-  padding: 16px;
-  font-size: 16px;
-  border: none;
+  background-color: #909090;
+}
+.previous {
+  background-color: #f1f1f1;
+  color: black;
+  font-size: 50px;
 }
 
-/* The container <div> - needed to position the dropdown content */
-.dropdown {
-    position: absolute;
-    display: inline-block;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-}
+
 .wrapper {
   display: grid;
   height: 100%;
@@ -69,17 +71,18 @@ video {
   transform: translate(-50%, -50%)
 }
 
-
 .item:hover {
   animation-name: grayscaleUp;
   animation-duration: 1.5s;
   filter: grayscale(0%);
 }
-
 .item:not( :hover ){
   animation-name: grayscaleDown;
   animation-duration: 1.5s;
  }
+
+
+
 @keyframes grayscaleUp {
   from {filter: grayscale(100%)}
   to {filter: grayscale(0%);}
