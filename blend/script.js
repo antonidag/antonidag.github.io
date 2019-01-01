@@ -1,3 +1,10 @@
+$( document ).ready( () => {
+
+    $("#load").fadeOut();
+    setTimeout(() => $("#menu").fadeIn() , 500);
+    ;
+});
+
 
 var target = "";
 var bg = document.getElementById("bg");
