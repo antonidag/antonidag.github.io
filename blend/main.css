@@ -26,14 +26,19 @@ video {
     filter: grayscale(100);
 }
 .bg a {
-  position: fixed;
+  position: left;
   text-decoration: none;
   display: inline-block;
   padding: 8px 16px;
+  opacity: 0.3;
 }
 .bg a:hover {
-  color: white;
-  background-color: #909090;
+  animation-name: opacityUp;
+  animation-duration: 1s;
+}
+.bg a:not(hover){
+  animation-name: opacityDown;
+  animation-duration: 1s;
 }
 .previous {
   background-color: #f1f1f1;
@@ -81,7 +86,14 @@ video {
   animation-duration: 1.5s;
  }
 
-
+@keyframes opacityUp {
+  from {opacity: 0.3;}
+  to {opacity: 1;}
+}
+@keyframes opacityDown {
+  from {opacity: 1;}
+  to {opacity: 0.3;}
+}
 
 @keyframes grayscaleUp {
   from {filter: grayscale(100%)}
