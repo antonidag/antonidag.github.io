@@ -1,6 +1,6 @@
 $( document ).ready( () => {
 
-    $("#load").fadeOut();
+    $("#load").fadeOut(700);
     setTimeout(() => $("#menu").fadeIn() , 500);
     ;
 });
