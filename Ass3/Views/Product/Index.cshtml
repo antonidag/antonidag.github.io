@@ -1,0 +1,31 @@
+﻿@model IEnumerable<Ass3.Models.Product>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+@foreach (var item in Model)
+{
+    <div style="float:left; width:350px;margin:5px;">
+        <h3>@item.Name</h3>
+        <p>Description: @item.Description</p>
+        <p>Size: @item.Size</p>
+        <p>Date: @item.Date.ToShortDateString()</p>
+        <p>Cost: @item.Cost kr</p>
+        <img src="@item.ImgSrc" width="200px" height="150px"/> <br />
+        @Html.ActionLink("Edit", "EditProduct", item, new { @class = "btn btn-warning" })
+        @Html.ActionLink("Remove", "RemoveProduct", item, new { @class = "btn btn-danger" })
+    </div>
+}
+<div style="clear:both;"></div>
+<h3>Add new Product</h3>
+@using (@Html.BeginForm("AddProduct", "Product", FormMethod.Post))
+{
+    <p>Name: <input name="name" placeholder="Nike" /></p>
+    <p>Description: <input name="description" placeholder="Runner shoes" /></p>
+    <p>Size: <input name="size" type="number" placeholder="45" /></p>
+    <p>Date: <input name="date" type="date" placeholder="@DateTime.Now.ToShortDateString()" /></p>
+    <p>Cost: <input name="cost" type="number" placeholder="55" /></p>
+    <p>Img Src: <input name="imgsrc" placeholder="https://c.static-nike.com/a/images/t_PDP_1280_v1/f_auto/s0w9wilv4i5nmc4bwxuk/roshe-g-mens-golf-shoe-Gkg9w1.jpg" /></p>
+    <input type="submit" value="Add" class="btn btn-success"/>
+}

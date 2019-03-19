@@ -1,0 +1,17 @@
+﻿@model Ass3.Models.Employee
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Edit</h2>
+
+
+@using (@Html.BeginForm("ChangeEmployee", "Employee", FormMethod.Post))
+{
+    <p>Name: <input name="name" value="@Model.Name" /></p>
+    <p>Department: <input name="department" value="@Model.Department" /></p>
+    <p>Phone: <input name="phone" value="@Model.Phone" /></p>
+    <p>Mail: <input name="email" value="@Model.Email" /></p>
+    <input name="id" value="@Model.ID" hidden="hidden" />
+    <input type="submit" value="Change" />
+}
