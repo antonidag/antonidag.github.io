@@ -1,7 +1,3 @@
-
-
-
-
 //var url ='http://www.splashbase.co/api/v1/images/search?query=';
 /*$.getJSON('https://geoip-db.com/json/')
    .done (function(location) {
