@@ -6,7 +6,7 @@
 
   });*/
 //
-$.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://www.splashbase.co/api/v1/images/latest') + '&callback=?', function(data){
+/*$.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://www.splashbase.co/api/v1/images/latest') + '&callback=?', function(data){
 	alert(data.contents);
 }).then((data) => {
 
@@ -19,10 +19,10 @@ $.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://
     }
   }
   $("#lead").css("background-image","url(" + stringImage + ")");
-});
+});*/
 
 
-/*var url = 'http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://www.splashbase.co/api/v1/images/latest');
+var url = 'https://www.hidemyass-freeproxy.com/proxy/sv-se/aHR0cDovL3d3dy5zcGxhc2hiYXNlLmNvL2FwaS92MS9pbWFnZXMvbGF0ZXN0';
   $.ajax({
       url: url,
       type: 'GET',
@@ -41,4 +41,3 @@ $.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://
     }
     $("#lead").css("background-image","url(" + stringImage + ")");
   });
-*/
