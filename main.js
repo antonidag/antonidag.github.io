@@ -6,7 +6,23 @@
 
   });*/
 //
-var url = 'http://www.splashbase.co/api/v1/images/latest'
+$.getJSON('http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://www.splashbase.co/api/v1/images/latest') + '&callback=?', function(data){
+	alert(data.contents);
+}).then((data) => {
+
+  while(true){
+    var jsonObject = JSON.parse(data.contents);
+    var rndNum =Math.floor(Math.random() * jsonObject.images.length);
+    var stringImage = jsonObject.images[rndNum].large_url;
+    if(stringImage.match(/\.(gif|jpg|jpeg|tiff|png)$/i)){
+      break;
+    }
+  }
+  $("#lead").css("background-image","url(" + stringImage + ")");
+});
+
+
+/*var url = 'http://www.whateverorigin.org/get?url=' + encodeURIComponent('http://www.splashbase.co/api/v1/images/latest');
   $.ajax({
       url: url,
       type: 'GET',
@@ -25,3 +41,4 @@ var url = 'http://www.splashbase.co/api/v1/images/latest'
     }
     $("#lead").css("background-image","url(" + stringImage + ")");
   });
+*/
