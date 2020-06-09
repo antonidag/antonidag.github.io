@@ -1,0 +1,76 @@
+2020-03-08
+
+Antagande inför uppgiften. 
+
+* int [] scrabbleLetterDistribution är hur många gånger en bokstav får förekomma i ett ord. 
+Vilket innebär att om ett ord har 'z' mer än 1 gång är inte gitligt ord. 
+
+
+10:45 
+Läste uppgiften och tittade runt lite på Scramble spelet.
+
+11:00 
+Tittade på hur filerna ospd.txt och word.shakespeare.txt ser ut.
+
+11:05 
+Lösning på highlevel. 
+1. Läs in alla ord från ospd.txt in i en lista. 
+2. Läs in alla ord som från word.shakespeare.txt som finns med i ospd.txt. 
+3. Räkna ut poängen för orden. 
+4. Sortera word.shakespeare.txt efter högsta poäng. 
+5. Gå från top och ta fram vilka tre ord som går att spela.
+
+
+11:20 
+Språk: C#, väljer pga det är språket som jag kan bäst. 
+Implementation
+Eftersom jag kommer arbeta med key och values känns det lovande att använda Hashtabeller.  
+
+1. Skrev först ReadFileMetod
+Källa: https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/file-system/how-to-read-a-text-file-one-line-at-a-time
+
+Modifierade koden. 
+
+2. Skapade upp respektive Hashtabell.
+Tittade även på denna källa: https://docs.microsoft.com/en-us/dotnet/api/system.collections.hashtable?view=netframework-4.8
+
+Fyllde dictionary med orden från opsd[3896].txt
+
+2. Läste in alla orden ifrån words.shakesspeare[3895].txt
+Rensade upp listan. 
+
+3. Skapade en lista med hjälp klassen Word.
+Fyllde denna listan med dem inlästa orden och ifrån words.shakesperare[3895].txt
+Tilldelade Word -> Letter repsketive Word -> Value.
+
+4. Sorterade Word listan. 
+Källa: https://www.dotnetperls.com/sort
+
+12:50 
+Pause, samt reflektion över vad jag ska göra sedan.
+Till nu har jag en sorterad lista med ordet som högsta värde som först. 
+Behöver att implementera någon typ av function som stämmer om ordet går att lägga. 
+
+13:25
+1. Skapar en ny lista med strings. 
+Loopar över alla orden i den sorterade listan. 
+Samt loopar över ordet i sig själv, för att kontrollera att det går och "lägga". 
+
+13:46 
+Klar med första implementation. 
+Kontrollerar att det faktistikt stämmer.
+Stämmde inte. 
+
+14:05
+Felsökte framtills nu, testade olika sätta att göra de på.
+Mer felsökning. 
+Läste om beskrivningen.
+Kom fram till att göra en temp hashmap istället, som håller värden på hur många gånger en bokstav förekom. 
+
+14:34 
+Testar.
+Kontrollerar att det verkar stämma.
+Klar med uppgiften.
+
+Samt dokumentation.
+  

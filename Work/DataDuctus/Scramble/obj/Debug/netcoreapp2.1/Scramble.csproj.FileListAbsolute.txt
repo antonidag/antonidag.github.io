@@ -1,0 +1,11 @@
+C:\Users\anbj\source\repos\Scramble\bin\Debug\netcoreapp2.1\Scramble.deps.json
+C:\Users\anbj\source\repos\Scramble\bin\Debug\netcoreapp2.1\Scramble.runtimeconfig.json
+C:\Users\anbj\source\repos\Scramble\bin\Debug\netcoreapp2.1\Scramble.runtimeconfig.dev.json
+C:\Users\anbj\source\repos\Scramble\bin\Debug\netcoreapp2.1\Scramble.dll
+C:\Users\anbj\source\repos\Scramble\bin\Debug\netcoreapp2.1\Scramble.pdb
+C:\Users\anbj\source\repos\Scramble\obj\Debug\netcoreapp2.1\Scramble.csprojAssemblyReference.cache
+C:\Users\anbj\source\repos\Scramble\obj\Debug\netcoreapp2.1\Scramble.csproj.CoreCompileInputs.cache
+C:\Users\anbj\source\repos\Scramble\obj\Debug\netcoreapp2.1\Scramble.AssemblyInfoInputs.cache
+C:\Users\anbj\source\repos\Scramble\obj\Debug\netcoreapp2.1\Scramble.AssemblyInfo.cs
+C:\Users\anbj\source\repos\Scramble\obj\Debug\netcoreapp2.1\Scramble.dll
+C:\Users\anbj\source\repos\Scramble\obj\Debug\netcoreapp2.1\Scramble.pdb
