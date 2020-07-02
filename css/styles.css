@@ -75,8 +75,10 @@ header.sticky{position:fixed;z-index:999}
     transition: all .5s ease-in-out;
     cursor: pointer;
     z-index: 999;
+    opacity: 0.3;
 }
 .LI-profile-badge:hover{
     clip-path: circle(75%);
+    opacity: 1;
 }
 
