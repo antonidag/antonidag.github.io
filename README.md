@@ -1,2 +1,2 @@
 ## Info 
-My personal website. View my projects and much more at: antonidag.github.com
+My personal website. View my projects and much more at [here](antonidag.github.io)
