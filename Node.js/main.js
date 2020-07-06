@@ -20,6 +20,4 @@ document.getElementById("ButtonLogin").addEventListener("click", function(event)
   const password = document.getElementById("InputPassword");
   console.log(nickname.value);
   console.log(password.value);
-
-
 });
